@@ -3,13 +3,11 @@ import os
 import django_heroku
 import dj_database_url
 from decouple import config
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-3vn_a-dylqpnukq1o$ry1lu89pv^+w4ononuf_rs(1-cx#r(pr'
 
@@ -64,16 +62,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mainApp.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -85,8 +73,6 @@ DATABASES = {
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -104,9 +90,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -118,28 +101,16 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-    # in order to use static files from "app" we need to specify path in this way -> app_name/foldername
-    # os.path.join(BASE_DIR, 'rough/static/'),
     os.path.join(BASE_DIR, 'projects/static/'),
     os.path.join(BASE_DIR, 'contactMe/static/'),
 )
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'app1/static/'),
-#     os.path.join(BASE_DIR, 'app2/static/'),
-# ]
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 django_heroku.settings(locals())
