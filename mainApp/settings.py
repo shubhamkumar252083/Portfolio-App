@@ -129,7 +129,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     # in order to use static files from "app" we need to specify path in this way -> app_name/foldername
     # os.path.join(BASE_DIR, 'rough/static/'),
-    os.path.join(BASE_DIR, 'projects/static/')
+    os.path.join(BASE_DIR, 'projects/static/'),
+    os.path.join(BASE_DIR, 'contactMe/static/'),
 )
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'app1/static/'),
